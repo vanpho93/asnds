@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "Pho Nguyen <vanpho02.@gmail.com>",
+  "license": "MIT",
   "scripts": {
     "tsc": "tsc",
     "mocha-runner": "DOTENV_CONFIG_PATH=test.env mocha dist/**/*.test.js -e js --recursive",
