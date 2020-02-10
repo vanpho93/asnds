@@ -1,0 +1,64 @@
+{
+  "name": "asnds",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Pho Nguyen <vanpho02.@gmail.com>",
+  "scripts": {
+    "tsc": "tsc",
+    "mocha-runner": "DOTENV_CONFIG_PATH=test.env mocha dist/**/*.test.js -e js --recursive",
+    "test": "concurrently yarn:test-*",
+    "testw": "set DOTENV_CONFIG_PATH=test.env&&nodemon --exec mocha dist/**/*.test.js -e js --recursive",
+    "test-ts": "tsc -w",
+    "test-nodemon": "nodemon --exec yarn mocha-runner -e ts",
+    "coverage-test": "DOTENV_CONFIG_PATH=test.env nyc mocha src/**/*.test.ts -e ts --recursive -w",
+    "tslint": "tslint --project tsconfig.json --config tslint.json"
+  },
+  "dependencies": {
+    "concurrently": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/mocha": "^7.0.1",
+    "@types/node": "^12.0.10",
+    "mocha": "^6.1.4",
+    "nyc": "^14.1.1",
+    "source-map-support": "^0.5.12",
+    "ts-node": "^8.1.0",
+    "tslint": "^5.18.0",
+    "typescript": "3.5.1"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "text-summary",
+      "html",
+      "text"
+    ],
+    "sourceMap": true,
+    "instrument": true,
+    "all": true,
+    "check-coverage": true,
+    "exclude": [
+      "src/**/*.test.ts"
+    ]
+  },
+  "mocha": {
+    "full-trace": true,
+    "require": [
+      "ts-node/register",
+      "source-map-support/register"
+    ],
+    "bail": true,
+    "timeout": 10000
+  },
+  "engines": {
+    "node": "^10.13.0"
+  }
+}
