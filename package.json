@@ -15,7 +15,8 @@
     "tslint": "tslint --project tsconfig.json --config tslint.json"
   },
   "dependencies": {
-    "concurrently": "^5.1.0"
+    "concurrently": "^5.1.0",
+    "lodash": "^4.17.15"
   },
   "devDependencies": {
     "@types/mocha": "^7.0.1",
