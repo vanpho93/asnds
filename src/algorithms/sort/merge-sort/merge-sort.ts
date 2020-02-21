@@ -1,11 +1,11 @@
-export function mergeSort(input: number[]): number[] {
+export function mergeSortRecursive(input: number[]): number[] {
   if (input.length <= 1) return input
 
   const centerIndex = Math.round(input.length / 2)
   const leftArray = input.slice(0, centerIndex)
   const rightArray = input.slice(centerIndex, input.length)
 
-  return merge(mergeSort(leftArray), mergeSort(rightArray))
+  return merge(mergeSortRecursive(leftArray), mergeSortRecursive(rightArray))
 }
 
 function merge(leftArray: number[], rightArray: number[]): number[] {
@@ -28,4 +28,8 @@ function merge(leftArray: number[], rightArray: number[]): number[] {
     }
   }
   return result
+}
+
+export function mergeSortIterative(input: number[]): number[] {
+  return []
 }

@@ -34,7 +34,7 @@ function partition(input: number[], startIndex: number, endIndex: number) {
   return pivotIndex
 }
 
-export function quickSortInterative(input: number[]): number[] {
+export function quickSortIterative(input: number[]): number[] {
   const stack = new Stack<IRange>()
   stack.push({ startIndex: 0, endIndex: input.length - 1 })
 

@@ -1,6 +1,6 @@
 import { ok } from 'assert'
 import { getTestTitle, isValidSortFunction } from '../../../helpers'
-import { quickSortRecursive, quickSortInterative } from './quick-sort'
+import { quickSortRecursive, quickSortIterative } from './quick-sort'
 
 const TEST_TITLE = getTestTitle(__filename)
 
@@ -9,7 +9,7 @@ describe(TEST_TITLE, () => {
     ok(isValidSortFunction(quickSortRecursive))
   })
 
-  it(`${TEST_TITLE} Can use quick sort interative`, () => {
-    ok(isValidSortFunction(quickSortInterative))
+  it(`${TEST_TITLE} Can use quick sort iterative`, () => {
+    ok(isValidSortFunction(quickSortIterative))
   })
 })
