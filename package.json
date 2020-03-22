@@ -19,6 +19,7 @@
     "lodash": "^4.17.15"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.149",
     "@types/mocha": "^7.0.1",
     "@types/node": "^13.9.2",
     "mocha": "^6.1.4",
