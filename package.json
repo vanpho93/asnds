@@ -8,7 +8,7 @@
     "tsc": "tsc",
     "mocha-runner": "DOTENV_CONFIG_PATH=test.env mocha dist/**/*.test.js -e js --recursive",
     "test": "concurrently yarn:test-*",
-    "testw": "set DOTENV_CONFIG_PATH=test.env&&nodemon --exec mocha dist/**/*.test.js -e js --recursive",
+    "testw": "set DOTENV_CONFIG_PATH=test.env&&nodemon --exec mocha dist/**/*.test.js -e ts --recursive",
     "test-ts": "tsc -w",
     "test-nodemon": "nodemon --exec yarn mocha-runner -e ts",
     "coverage-test": "DOTENV_CONFIG_PATH=test.env nyc mocha src/**/*.test.ts -e ts --recursive -w",
@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@types/mocha": "^7.0.1",
-    "@types/node": "^12.0.10",
+    "@types/node": "^13.9.2",
     "mocha": "^6.1.4",
     "nyc": "^14.1.1",
     "source-map-support": "^0.5.12",
@@ -61,6 +61,6 @@
     "timeout": 10000
   },
   "engines": {
-    "node": "^10.13.0"
+    "node": "^12.13.0"
   }
 }
