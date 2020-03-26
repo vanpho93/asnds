@@ -1,25 +1,25 @@
 export class Tag {
-  static get indentSize() { return 2; }
+  static get indentSize() { return 2 }
 
   constructor(private name = '', private text = '', public children: Tag[] = []) {}
 
   private toStringImpl(indent: number): string {
-    let html = [];
-    let i = ' '.repeat(indent * Tag.indentSize);
-    html.push(`${i}<${this.name}>\n`);
+    const html = []
+    const i = ' '.repeat(indent * Tag.indentSize)
+    html.push(`${i}<${this.name}>\n`)
     if (this.text.length > 0) {
-      html.push(' '.repeat(Tag.indentSize * (indent + 1)));
-      html.push(this.text);
-      html.push('\n');
+      html.push(' '.repeat(Tag.indentSize * (indent + 1)))
+      html.push(this.text)
+      html.push('\n')
     }
 
     this.children.forEach(child => html.push(child.toStringImpl(indent + 1)))
-    html.push(`${i}</${this.name}>\n`);
-    return html.join('');
+    html.push(`${i}</${this.name}>\n`)
+    return html.join('')
   }
 
   toString() {
-    return this.toStringImpl(0);
+    return this.toStringImpl(0)
   }
 }
 
@@ -35,9 +35,9 @@ export class HtmlBuilder {
   }
 
   addChild(childName = '', childText = '') {
-    let child = new Tag(childName, childText);
-    this.root.children.push(child);
-    return this;
+    const child = new Tag(childName, childText)
+    this.root.children.push(child)
+    return this
   }
 
   public toString() {
