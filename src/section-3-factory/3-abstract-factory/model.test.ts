@@ -1,7 +1,6 @@
 import td from 'testdouble'
 import { HotDrinkMachine } from './model'
 import { TestHelper } from '../../helpers'
-import { deepEqual } from 'assert'
 
 const TEST_TITLE = TestHelper.getTestTitle(__filename)
 

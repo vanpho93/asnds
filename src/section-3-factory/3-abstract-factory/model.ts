@@ -22,15 +22,15 @@ abstract class HotDrinkFactory<T> {
 
 class TeaFactory extends HotDrinkFactory<Tea> {
   prepare(amount: number) {
-    console.log(`Put in tea bag, boil water, pour ${amount}ml`);
-    return new Tea();
+    console.log(`Put in tea bag, boil water, pour ${amount}ml`)
+    return new Tea()
   }
 }
 
 class CoffeeFactory extends HotDrinkFactory<Coffee> {
   prepare(amount: number) {
-    console.log(`Grind some beans, boil water, pour ${amount}ml`);
-    return new Coffee();
+    console.log(`Grind some beans, boil water, pour ${amount}ml`)
+    return new Coffee()
   }
 }
 
@@ -44,9 +44,8 @@ const availableDrinks: { [key: string]: ClassOfHotDrinkFactory } = {
 export class HotDrinkMachine {
   private factories: { [key: string ]: HotDrinkFactory<IHotDrink> }
   constructor() {
-    this.factories = {};
-    for (let drink in availableDrinks)
-    {
+    this.factories = {}
+    for (const drink in availableDrinks) {
       this.factories[drink] = new availableDrinks[drink]()
     }
   }
@@ -54,6 +53,6 @@ export class HotDrinkMachine {
   makeDrink(type: string, amount: number) {
     const factory = this.factories[type]
     if (isNil(factory)) throw new Error(`Don't know how to make ${type}`)
-    return factory.prepare(amount);
+    return factory.prepare(amount)
   }
 }
