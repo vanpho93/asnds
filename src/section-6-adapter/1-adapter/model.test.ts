@@ -1,5 +1,5 @@
 import td from 'testdouble'
-import { VectorRectangle, drawPoints } from './model'
+import { VectorRectangle, drawPoints, Printer } from './model'
 import { TestHelper } from '../../helpers'
 import { equal } from 'assert'
 
@@ -9,8 +9,8 @@ describe(TEST_TITLE, () => {
   let output = ''
 
   beforeEach(TEST_TITLE, () => {
-    td.replace(console, 'log', (value: string) => output = `${output}${value}\n`)
-    td.replace(process.stdout, 'write', (value: string) => output = `${output}${value}`)
+    td.replace(Printer, 'printnl', (value: string) => output = `${output}${value}\n`)
+    td.replace(Printer, 'print', (value: string) => output = `${output}${value}`)
   })
 
   afterEach(TEST_TITLE, () => {

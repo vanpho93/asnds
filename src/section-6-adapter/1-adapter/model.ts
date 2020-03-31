@@ -1,3 +1,13 @@
+export class Printer { // wrapper print functions for testing purpose
+  static print(value: string) {
+    process.stdout.write(value)
+  }
+
+  static printnl(value: string) {
+    console.log(value)
+  }
+}
+
 class Point {
   constructor(public x: number, public y: number) {}
 
@@ -40,7 +50,7 @@ class LineToPointsAdapter {
   constructor(line: Line) {
     this.hash = toHashCode(JSON.stringify(line))
     if (LineToPointsAdapter.cache[this.hash]) return
-    console.log(`${LineToPointsAdapter.count++}: Generating ` +
+    Printer.printnl(`${LineToPointsAdapter.count++}: Generating ` +
     `points for line ${line.toString()} (no caching)`)
 
     const left = Math.min(line.start.x, line.end.x)
@@ -68,7 +78,7 @@ class LineToPointsAdapter {
 }
 
 function drawPoint(point: Point) {
-  process.stdout.write('.')
+  Printer.print('.')
 }
 
 export function drawPoints(vectorRectangle: VectorRectangle) {
