@@ -12,7 +12,6 @@ export class MyDatabase implements IPopulationDatabase {
   private static capitals = MyDatabase.load()
 
   static load(): CapitalPopulationDictionary {
-    console.log(`Initializing database`)
     const file = join(__dirname, 'data.txt').replace('dist', 'src')
     const lines = readFileSync(file).toString().split('\r\n')
 
