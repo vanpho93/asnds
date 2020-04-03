@@ -13,11 +13,11 @@ export class MyDatabase implements IPopulationDatabase {
 
   static load(): CapitalPopulationDictionary {
     const file = join(__dirname, 'data.txt').replace('dist', 'src')
-    const lines = readFileSync(file).toString().split('\r\n')
+    const lines = readFileSync(file).toString().split('\n')
 
     const result: CapitalPopulationDictionary = {}
     for (let i = 0; i < lines.length / 2; ++i) {
-      const cityName = lines[2 * i]
+      const cityName = lines[2 * i].trim()
       const population = parseInt(lines[2 * i + 1])
       result[cityName] = population
     }
