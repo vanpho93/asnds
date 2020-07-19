@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "concurrently": "^5.1.0",
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.19"
   },
   "devDependencies": {
     "@types/mocha": "^7.0.1",
